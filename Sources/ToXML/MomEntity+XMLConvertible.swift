@@ -7,7 +7,12 @@ import Foundation
 extension MomEntity: XMLConvertible {
 
     public var xml: String {
-        var output = "<entity name=\"\(name)\" representedClassName=\"\(representedClassName)\" syncable=\"\(syncable.xml)\" codeGenerationType=\"\(codeGenerationType)\">\n"
+        var output = "<entity name=\"\(name)\" representedClassName=\"\(representedClassName)\" syncable=\"\(syncable.xml)\""
+        if let codeGenerationType = codeGenerationType {
+            output += " codeGenerationType=\"\(codeGenerationType)\""
+        }
+        output += ">\n"
+        
         for attribute in attributes {
             output += attribute.xml
             output += "\n"

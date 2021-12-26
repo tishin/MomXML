@@ -11,10 +11,10 @@ extension MomEntity: XMLObject {
             return nil
         }
         guard let name = element.attribute(by: "name")?.text,
-            let representedClassName = element.attribute(by: "representedClassName")?.text,
-            let codeGenerationType = element.attribute(by: "codeGenerationType")?.text else {
+            let representedClassName = element.attribute(by: "representedClassName")?.text else {
                 return nil
         }
+        let codeGenerationType = element.attribute(by: "codeGenerationType")?.text
 
         self.init(name: name, representedClassName: representedClassName, codeGenerationType: codeGenerationType)
 

@@ -9,14 +9,14 @@ public struct MomEntity {
     public var name: String
     public var representedClassName: String
     public var syncable: Bool = true
-    public var codeGenerationType: String
+    public var codeGenerationType: String?
     public var userInfo = MomUserInfo()
     public var uniquenessConstraints: MomUniquenessConstraints?
 
     //TODO public var elementID: String?
     //TODO public var versionHashModifier: String?
 
-    public init(name: String, representedClassName: String? = nil, codeGenerationType: String = "class") {
+    public init(name: String, representedClassName: String? = nil, codeGenerationType: String? = "class") {
         self.name = name
         self.representedClassName = representedClassName ?? name
         self.codeGenerationType = codeGenerationType

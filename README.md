@@ -40,7 +40,7 @@ Contains `struct` extensions to create this `struct` objects using XML from `SWX
 
 ```swift
 let xmlString = ... // from file or string
-let mom = MomXML(xml: SWXMLHash.parse(xmlString))
+let mom = MomXML(xml: XMLHash.parse(xmlString))
 ```
 
 ### FromCoreData

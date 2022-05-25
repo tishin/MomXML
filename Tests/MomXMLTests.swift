@@ -28,7 +28,7 @@ class MomXMLTests: XCTestCase {
         let xmlString = mom.xml
         XCTAssertFalse(xmlString.isEmpty)
         
-        let xml = SWXMLHash.parse(xmlString)
+        let xml = XMLHash.parse(xmlString)
 
         let parsedMom = MomXML(xml: xml)
         XCTAssertNotNil(parsedMom)
@@ -61,7 +61,7 @@ class MomXMLTests: XCTestCase {
         
         XCTAssertFalse(xmlString.isEmpty)
         
-        let xml = SWXMLHash.parse(xmlString)
+        let xml = XMLHash.parse(xmlString)
         
         let parsedMom = MomXML(xml: xml)
         XCTAssertNotNil(parsedMom)
@@ -100,7 +100,7 @@ class MomXMLTests: XCTestCase {
         
         XCTAssertFalse(xmlString.isEmpty)
         
-        let xml = SWXMLHash.parse(xmlString)
+        let xml = XMLHash.parse(xmlString)
         
         let parsedMom = MomXML(xml: xml)
         XCTAssertNotNil(parsedMom)
@@ -168,7 +168,7 @@ class MomXMLTests: XCTestCase {
         
         XCTAssertFalse(xmlString.isEmpty)
         
-        let xml = SWXMLHash.parse(xmlString)
+        let xml = XMLHash.parse(xmlString)
         
         let parsedMom = MomXML(xml: xml)
         XCTAssertNotNil(parsedMom)
@@ -274,7 +274,7 @@ class MomXMLTests: XCTestCase {
         if let url = Fixture.url(forResource: "model", withExtension: "xml") {
             do {
                 let xmlString = try String(contentsOf: url)
-                let xml = SWXMLHash.parse(xmlString)
+                let xml = XMLHash.parse(xmlString)
                 guard let parsedMom = MomXML(xml: xml) else {
                     XCTFail("Failed to parse xml")
                     return
@@ -321,7 +321,7 @@ class MomXMLTests: XCTestCase {
                 /// Important test, check that rendered data it's same as parsed data
                 let xmlFromParsed = parsedMom.xml
                 // print(xmlFromParsed)
-                let recreatedMom = MomXML(xml: SWXMLHash.parse(xmlFromParsed))
+                let recreatedMom = MomXML(xml: XMLHash.parse(xmlFromParsed))
                 XCTAssertEqual(recreatedMom, parsedMom)
                 
             } catch {
@@ -335,7 +335,7 @@ class MomXMLTests: XCTestCase {
         if let url = Fixture.url(forResource: "model2", withExtension: "xml") {
             do {
                 let xmlString = try String(contentsOf: url)
-                let xml = SWXMLHash.parse(xmlString)
+                let xml = XMLHash.parse(xmlString)
                 guard let parsedMom = MomXML(xml: xml) else {
                     XCTFail("Failed to parse xml")
                     return
@@ -372,7 +372,7 @@ class MomXMLTests: XCTestCase {
                 /// Important test, check that rendered data it's same as parsed data
                 let xmlFromParsed = parsedMom.xml
                 // print(xmlFromParsed)
-                let recreatedMom = MomXML(xml: SWXMLHash.parse(xmlFromParsed))
+                let recreatedMom = MomXML(xml: XMLHash.parse(xmlFromParsed))
                 XCTAssertEqual(recreatedMom, parsedMom)
             } catch {
                 XCTFail("Unable to read test file Model \(error)")
@@ -386,7 +386,7 @@ class MomXMLTests: XCTestCase {
         if let url = Fixture.url(forResource: "modelJsonToXML", withExtension: "xml") {
             do {
                 let xmlString = try String(contentsOf: url)
-                let xml = SWXMLHash.parse(xmlString)
+                let xml = XMLHash.parse(xmlString)
                 guard let parsedMom = MomXML(xml: xml) else {
                     XCTFail("Failed to parse xml")
                     return
@@ -417,7 +417,7 @@ class MomXMLTests: XCTestCase {
                 /// Important test, check that rendered data it's same as parsed data
                 let xmlFromParsed = parsedMom.xml
                 // print(xmlFromParsed)
-                let recreatedMom = MomXML(xml: SWXMLHash.parse(xmlFromParsed))
+                let recreatedMom = MomXML(xml: XMLHash.parse(xmlFromParsed))
                 XCTAssertEqual(recreatedMom, parsedMom)
             } catch {
                 XCTFail("Unable to read test file Model \(error)")
@@ -451,7 +451,7 @@ class MomXMLTests: XCTestCase {
 </model>
 """
         
-        let xml = SWXMLHash.parse(modelString)
+        let xml = XMLHash.parse(modelString)
         guard let parsedMom = MomXML(xml: xml) else {
             XCTFail("Unable to parse String XML model")
             return

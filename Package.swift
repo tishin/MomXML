@@ -11,7 +11,7 @@ let package = Package(
             targets: ["MomXML"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/drmohundro/SWXMLHash.git", from: "5.0.1")
+        .package(url: "https://github.com/drmohundro/SWXMLHash.git", from: "6.0.0")
     ],
     targets: [
         .target(
